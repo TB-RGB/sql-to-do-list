@@ -22,20 +22,20 @@ function renderTasks(tasks){
     for (let task of tasks){
         if (task.isComplete === false){
             taskList.innerHTML += `
-            <tr>
+            <tr data-testid="toDoItem">
                 <td>${task.text}</td>
                 <td>❌ Not Complete ❌</td>
-                <td><button onClick="markComplete(${task.id}, true)">Completed</button></td>
-                <td><button onClick="deleteTask(${task.id})">Remove</button></td>
+                <td><button onClick="markComplete(${task.id}, true)" data-testid="completeButton">Completed</button></td>
+                <td><button onClick="deleteTask(${task.id})" data-testid="deleteButton">Remove</button></td>
             </tr>
             `;
         } else {
             taskList.innerHTML += `
-            <tr>
+            <tr data-testid="toDoItem" class="completed">
                 <td>${task.text}</td>
                 <td>✅ All Done! ✅</td>
-                <td><button disabled>Completed</button></td>
-                <td><button onClick="deleteTask(${task.id})">Remove</button></td>
+                <td><button disabled data-testid="completeButton">Completed</button></td>
+                <td><button onClick="deleteTask(${task.id})" data-testid="deleteButton">Remove</button></td>
             </tr>
             `;
         }
