@@ -13,5 +13,25 @@
     <h1>SQL TO-DO List</h1>
   </header>
 
+  <section>
+    <h2>New Task</h2>
+    <input type="text" placeholder="Task To-Do" id="newTask" data-testid="toDoTextInput">
+    <button onClick="submitTask()" data-testid="submitButton">Add Task</button>
+  </section>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Mark Complete</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="taskList">
+
+    </tbody>
+  </table>
+
 </body>
 </html>
