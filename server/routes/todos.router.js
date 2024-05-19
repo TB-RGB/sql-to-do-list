@@ -39,6 +39,7 @@ router.post('/', (req, res)=>{
 })
 
 // ? PUT route to update task as completed
+    // ! Added ability to un-mark as compplete to allow the new css styling that is able to be toggled on and off
 
 router.put('/task/:id', (req, res)=>{
     let taskId = req.params.id;
@@ -51,7 +52,13 @@ router.put('/task/:id', (req, res)=>{
         UPDATE "todos" SET "isComplete"=true
         WHERE "id"=$1;
         `
-    } else {
+    } else if (isComplete === false){
+        queryText = `
+        UPDATE "todos" SET "isComplete"=false
+        WHERE "id"=$1;
+        `
+    } 
+    else {
         console.error('Trouble marking complete')
         res.sendStatus(500)
     }
