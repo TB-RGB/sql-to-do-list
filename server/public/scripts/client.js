@@ -49,8 +49,8 @@ function renderTasks(tasks) {
   for (let task of tasks) {
     if (task.isComplete === false){
     taskList.innerHTML += `
-            <div>
-            <input class="hidden" type="checkbox" id="task_${task.id}" onClick="markComplete(${task.id}, true)">
+            <div data-testid="toDoItem">
+            <input class="hidden" type="checkbox" id="task_${task.id}" onClick="markComplete(${task.id}, true)" data-testid="completeButton">
             <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_${task.id}">
               <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
                 <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -68,7 +68,7 @@ function renderTasks(tasks) {
             `;
     } else {
         taskList.innerHTML += `
-        <div>
+        <div data-testid="toDoItem">
             <input class="hidden" type="checkbox" id="task_${task.id}" onClick="markComplete(${task.id}, false)" checked>
             <label class="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" for="task_${task.id}">
               <span class="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
